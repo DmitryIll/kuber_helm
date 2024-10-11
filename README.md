@@ -44,6 +44,66 @@ sudo apt-get install helm
 
 Все ок.
 
+```
+helm search repo bitnami
+```
+
+![alt text](image-2.png)
+
+```
+helm repo update
+```
+```
+helm show chart bitnami/nginx
+```
+
+![alt text](image-3.png)
+
+
+```
+helm install bitnami/nginx --generate-name
+```
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+![alt text](image-7.png)
+
+![alt text](image-8.png)
+
+```
+helm uninstall nginx-1728626347
+```
+
+![alt text](image-9.png)
+
+```
+helm rollback nginx-1728626347
+```
+
+![alt text](image-10.png)
+
+```
+helm show values bitnami/nginx
+```
+
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+
+
+Еще на свой рабочий ПК скачал чарты:
+
+```
+git clone https://github.com/bitnami/charts
+```
+
+Там нашел чарт nginx и смотрю его уже в VSC:
+
+![alt text](image-13.png)
+
 ------
 ### Задание 2. Запустить две версии в разных неймспейсах
 
@@ -55,6 +115,32 @@ sudo apt-get install helm
 
 ![alt text](image-1.png)
 
+```
+helm install nginx-aap1 bitnami/nginx -n app1 --set image.tag=1.26.2-debian-12-r6
+```
+
+![alt text](image-14.png)
+![alt text](image-15.png)
+
+```
+helm install nginx2-aap1 bitnami/nginx -n app1 --set image.tag='1.26.2-debian-12-r6'
+```
+
+![alt text](image-16.png)
+
+```
+helm list -n app1
+```
+
+![alt text](image-17.png)
+
+```
+helm install nginx3-aap1 bitnami/nginx -n app2 --set image.tag='1.26.2-debian-12-r6'
+```
+
+![alt text](image-18.png)
+
+![alt text](image-19.png)
 
 
 
